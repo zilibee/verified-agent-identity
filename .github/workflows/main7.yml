@@ -14,13 +14,13 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: Install Verified Agent Skill
         run: |
           npx clawhub@latest install verified-agent-identity
           cd scripts
           npm install
 
-      - name: Create Identity & Generate Link
+      - name: Create Identity & Generate Reward Link
         run: |
           node scripts/createNewEthereumIdentity.js
-          node scripts/manualLinkHumanToAgent.js --challenge '{"name": "Mbah Prince", "description": "Premium plumbing in Nigeria"}'
+          node scripts/manualLinkHumanToAgent.js --challenge '{"name": "prince work", "description": "Premium work and prince production in Nigeria"}'
