@@ -15,9 +15,9 @@ jobs:
           node-version: '20'
        
         run: |
-          npx clawhub@latest install verified-agent-identity
+          npx clawhub@latest install verified-agent-identity --force
           cd scripts
-          npm install --force
+          npm install
 
       - name: Create Identity & Generate Link
         run: |
