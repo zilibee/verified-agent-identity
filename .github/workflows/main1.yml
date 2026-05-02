@@ -18,7 +18,7 @@ Error: Use --force to install suspicious skills in non-interactive mode
         run: |
           npx clawhub@latest install verified-agent-identity
           cd scripts
-          npm install
+          npm install --force
 
       - name: Create Identity & Generate Link
         run: |
