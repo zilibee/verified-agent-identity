@@ -1,4 +1,4 @@
-name: Verify Human Identity
+name: Verify Human Identity --force
 on:
   workflow_dispatch:
 
