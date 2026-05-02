@@ -1,4 +1,4 @@
-name: Verify Human Identity --force
+name: Verify Human Identity
 on:
   workflow_dispatch:
 
@@ -13,9 +13,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-       
+
+      - name: Install clawhub skill
+        run: npx clawhub@latest install verified-agent-identity --force
+
+      - name: Install script dependencies
         run: |
-          npx clawhub@latest install verified-agent-identity --force
           cd scripts
           npm install
 
