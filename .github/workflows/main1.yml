@@ -13,7 +13,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-Error: Use --force to install suspicious skills in non-interactive mode
        
         run: |
           npx clawhub@latest install verified-agent-identity
