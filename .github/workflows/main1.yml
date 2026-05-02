@@ -14,7 +14,6 @@ jobs:
         with:
           node-version: '20'
 Error: Use --force to install suspicious skills in non-interactive mode
-      - name: Install dependencies
         run: |
           npx clawhub@latest install verified-agent-identity
           cd scripts
