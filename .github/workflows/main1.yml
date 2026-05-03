@@ -7,20 +7,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # v4 is current, v3 is old
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4 # update this too
         with:
-          node-version: '20'
+          node-version: '22' # bumped from 20 to 22 to satisfy p-retry@8.0.0
+          cache: 'npm' # speeds up subsequent runs
 
       - name: Install clawhub skill
         run: npx clawhub@latest install verified-agent-identity --force
+        env:
+          CLAWHUB_TOKEN: ${{ secrets.CLAWHUB_TOKEN }} # add this if the skill is private
 
       - name: Install script dependencies
         run: |
           cd scripts
-          npm install
+          npm ci # ci is faster + safer than install in CI
 
       - name: Create Identity & Generate Link
         run: |
